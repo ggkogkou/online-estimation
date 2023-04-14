@@ -1,4 +1,4 @@
-function dydt = system_of_odes(t, y)
+function dydt = gradient_system_of_odes(t, y)
     % Implement the system of ODEs that were derived from theoretical
     % analysis. ode45 is used as shown [here](https://www.mathworks.com/help/matlab/ref/ode45.html)
     %

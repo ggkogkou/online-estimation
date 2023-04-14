@@ -11,7 +11,7 @@ function task1()
 
     % Solve the ODE
     tspan = 0 : 0.001 : 25;
-    [~, y_matrix] = ode45(@system_of_odes, tspan, [0; 0; 0; 0; 0]);
+    [~, y_matrix] = ode45(@gradient_system_of_odes, tspan, [0; 0; 0; 0; 0]);
 
     % Separate the columns of the above solution
     y = y_matrix(:, 1);
