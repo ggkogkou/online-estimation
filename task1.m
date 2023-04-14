@@ -1,6 +1,7 @@
 function task1()
-    % Clear console
-    clc;
+    % Clear console and workspace
+    clc; clear;
+    addpath("src/")
 
     % Solve the system for gradient method
     % System ode: y' = -a*y + b*u

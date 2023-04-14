@@ -1,11 +1,12 @@
 function task2()
-    % Clear console
-    clc;
+    % Clear console and workspace
+    clc; clear;
+    addpath("src/")
 
     % Solve the system for Lyapunov method
     % conf: 'p' for parallel configuration
     % conf: 'sp' for series-parallel configuration
-    % conf = "p";
+    %conf = "p";
     conf = "sp";
     
     % System ode: y' = -a*y + b*u
@@ -14,7 +15,7 @@ function task2()
     b = data{2};
 
     % Solve the ODE
-    tspan = 0 : 0.001 : 25;
+    tspan = 0 : 0.001 : 30;
 
     % Lyapunov -- Parallel Configuration
     if conf == "p"
@@ -42,7 +43,7 @@ function task2()
     figure(1)
     plot(tspan, y, tspan, y_est, 'LineWidth', 1.5);
     legend("y", "y_e_s_t");
-    title("y and estimated by gradient method y_e_s_t");
+    title("y and estimated by Lyapunov method y_e_s_t");
 
     % Plot (a, a_est) and (b, b_est)
     a = zeros(length(tspan), 1) + a;
