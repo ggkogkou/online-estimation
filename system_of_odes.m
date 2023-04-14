@@ -15,13 +15,12 @@ function dydt = system_of_odes(t, y)
     u = data{5};
 
     % ODEs system
-    e = [(p-a-y(4))*u(t); 
-        (b-y(5))*u(t)];
+    e = y(1) - y(4)*y(2) - y(5)*y(3);
     dydt(1) = -a*y(1) + b*u(t);
     dydt(2) = -p*y(2) + y(1);
     dydt(3) = -p*y(3) + u(t);
-    dydt(4) = gamma*e(1)*y(2);
-    dydt(5) = gamma*e(2)*y(3);
+    dydt(4) = gamma*e*y(2);
+    dydt(5) = gamma*e*y(3);
 
     % Function must return column vectors
     dydt = transpose(dydt);
