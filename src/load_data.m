@@ -6,8 +6,8 @@ function [data] = load_data(task_number)
     b = 0.5;
     p = 2;
     gamma = 6;
-    u_gradient = @(t) 10*sin(3*t);
-    %u_gradient = @(t) 10;
+    %u_gradient = @(t) 10*sin(3*t);
+    u_gradient = @(t) 10;
 
     % Task 2
     a = 3;
