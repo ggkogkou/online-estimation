@@ -45,7 +45,7 @@ function task2()
     legend("y", "y_e_s_t");
     title("y and estimated by Lyapunov method y_e_s_t");
 
-    % Plot (a, a_est) and (b, b_est)
+    % Plot Estimated vs Real Parameters
     a = zeros(length(tspan), 1) + a;
     b = zeros(length(tspan), 1) + b;
 

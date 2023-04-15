@@ -11,7 +11,7 @@ function task1()
     p = data{3};
 
     % Solve the ODE
-    tspan = 0 : 0.001 : 25;
+    tspan = 0 : 0.01 : 50;
     [~, y_matrix] = ode45(@gradient_system_of_odes, tspan, [0; 0; 0; 0; 0]);
 
     % Separate the columns of the above solution
@@ -37,22 +37,17 @@ function task1()
     legend("y", "y_e_s_t");
     title("y and estimated by gradient method y_e_s_t");
 
-    % Plot (a, a_est) and (b, b_est)
+    % Plot Estimated vs Real Parameters
     a = zeros(length(tspan), 1) + a;
     b = zeros(length(tspan), 1) + b;
 
     figure(2)
-    plot(tspan, a, tspan, a_est, 'LineWidth', 1.5);
-    legend("a", "a_e_s_t");
-    title("a and estimated a_e_s_t parameters");
-
-    figure(3)
-    plot(tspan, b, tspan, b_est, 'LineWidth', 1.5);
-    legend("b", "b_e_s_t");
-    title("b and estimated b_e_s_t parameters");
+    plot(tspan, a, tspan, a_est, tspan, b, tspan, b_est, 'LineWidth', 1.5);
+    legend("a", "a_e_s_t", "b", "b_e_s_t");
+    title("Estimated vs Real Parameters");
 
     % Plot the Mean Square Error between a, b, y and their estimators
-    figure(4)
+    figure(3)
     plot(tspan, mse_y, tspan, mse_a, tspan, mse_b, 'LineWidth', 1.5);
     legend("MSE y, y_e_s_t", "MSE a, a_e_s_t", "MSE b, b_e_s_t");
     title("MSE of estimated output y and a, b parameters and their real values");

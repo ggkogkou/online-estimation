@@ -4,10 +4,10 @@ function [data] = load_data(task_number)
     % Task 1 -- System ODE: y' = -a*y + b*u
     a = 3;
     b = 0.5;
-    p = 5;
-    gamma = 1;
-    %u_gradient = @(t) 10*sin(3*t);
-    u_gradient = @(t) 10;
+    p = 2;
+    gamma = 6;
+    u_gradient = @(t) 10*sin(3*t);
+    %u_gradient = @(t) 10;
 
     % Task 2
     a = 3;

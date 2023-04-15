@@ -39,7 +39,7 @@ function task3()
     legend("y_2", "y_2_e_s_t");
     title("y2 and estimated y2_e_s_t: Lyapunov 2D");
 
-    % Plot (a, a_est) and (b, b_est)
+    % Plot Estimated vs Real Parameters
     a11 = zeros(length(tspan), 1) + A(1, 1);
     a12 = zeros(length(tspan), 1) + A(1, 2);
     a21 = zeros(length(tspan), 1) + A(2, 1);
