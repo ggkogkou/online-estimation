@@ -15,7 +15,7 @@ function task2()
     b = data{2};
 
     % Solve the ODE
-    tspan = 0 : 0.001 : 30;
+    tspan = 0 : 0.001 : 100;
 
     % Lyapunov -- Parallel Configuration
     if conf == "p"
@@ -41,7 +41,7 @@ function task2()
 
     % Plot y and y_est
     figure(1)
-    plot(tspan, y, tspan, y_est, 'LineWidth', 1.5);
+    plot(tspan, y, tspan, y_est, 'LineWidth', 1.2);
     legend("y", "y_e_s_t");
     title("y and estimated by Lyapunov method y_e_s_t");
 
@@ -50,13 +50,13 @@ function task2()
     b = zeros(length(tspan), 1) + b;
 
     figure(2)
-    plot(tspan, a, tspan, a_est, tspan, b, tspan, b_est, 'LineWidth', 1.5);
+    plot(tspan, a, tspan, a_est, tspan, b, tspan, b_est, 'LineWidth', 1.2);
     legend("a", "a_e_s_t", "b", "b_e_s_t");
     title("Estimated vs Real Parameters"); 
 
     % Plot the Mean Square Error between a, b, y and their estimators
     figure(3)
-    plot(tspan, mse_y, tspan, mse_a, tspan, mse_b, 'LineWidth', 1.5);
+    plot(tspan, mse_y, tspan, mse_a, tspan, mse_b, 'LineWidth', 1.2);
     legend("MSE y, y_e_s_t", "MSE a, a_e_s_t", "MSE b, b_e_s_t");
     title("MSE of estimated output y and a, b parameters and their real values");
 

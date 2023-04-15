@@ -19,8 +19,8 @@ function dydt = series_parallel_lyapunov_system_of_odes(t, y)
     % ODEs system
     e = y(1) + noise(t) - y(2);
     dydt(1) = -a*y(1) + b*u(t);
-    dydt(2) = -y(3)*y(2) + y(4)*u(t) - theta_m*(y(1)-y(2));
-    dydt(3) = -gamma_1*e*y(2);
+    dydt(2) = -theta_m*y(2) + (theta_m-y(3))*y(1) + y(4)*u(t);
+    dydt(3) = -gamma_1*e*y(1);
     dydt(4) = gamma_2*e*u(t);
 
     % Function must return column vectors
