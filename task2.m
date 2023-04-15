@@ -6,8 +6,8 @@ function task2()
     % Solve the system for Lyapunov method
     % conf: 'p' for parallel configuration
     % conf: 'sp' for series-parallel configuration
-    %conf = "p";
-    conf = "sp";
+    conf = "p";
+    %conf = "sp";
     
     % System ode: y' = -a*y + b*u
     [data] = load_data(2);

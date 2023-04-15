@@ -28,6 +28,8 @@ function [data] = load_data(task_number)
     A = [a11, a12;
          a21, a22];
     B = [b1; b2];
+    Am = [-1, 0;
+           0, -1];
     u_lyapunov_2d = @(t) 3.5*sin(7.2*t) + 2*sin(11.7*t);
 
     % Return the values
@@ -36,7 +38,7 @@ function [data] = load_data(task_number)
     elseif task_number == 2
         data = {a, b, theta_m, gamma_1, gamma_2, u_lyapunov, noise};
     elseif task_number == 3
-        data = {A, B, gamma_1, gamma_2, u_lyapunov_2d};
+        data = {A, B, Am, gamma_1, gamma_2, u_lyapunov_2d};
     else
         fprintf("No Task was selected to return the corresponding data\n");
     end

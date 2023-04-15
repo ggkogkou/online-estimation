@@ -11,7 +11,7 @@ function task3()
     B = data{2};
 
     % Solve the ODE
-    tspan = 0 : 0.01 : 50;
+    tspan = 0 : 0.01 : 100;
 
     % Lyapunov -- Series-Parallel Configuration
     [~, y_matrix] = ode45(@multidimensional_lyapunov_system_of_odes, tspan, [0; 0; 0; 0; 0; 0; 0; 0; 0; 0]);
@@ -30,12 +30,12 @@ function task3()
 
     % Plot y_i and y_i_est
     figure(1)
-    plot(tspan, y1, tspan, y1_est, 'LineWidth', 1.5);
+    plot(tspan, y1, tspan, y1_est, 'LineWidth', 1.2);
     legend("y_1", "y_1_e_s_t");
     title("y1 and estimated y1_e_s_t: Lyapunov 2D");
 
     figure(2)
-    plot(tspan, y2, tspan, y2_est, 'LineWidth', 1.5);
+    plot(tspan, y2, tspan, y2_est, 'LineWidth', 1.2);
     legend("y_2", "y_2_e_s_t");
     title("y2 and estimated y2_e_s_t: Lyapunov 2D");
 

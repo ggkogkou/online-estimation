@@ -10,19 +10,25 @@ function dydt = multidimensional_lyapunov_system_of_odes(t, y)
     [data] = load_data(3);
     A = data{1};
     B = data{2};
-    gamma_1 = data{3};
-    gamma_2 = data{4};
-    u = data{5};
+    Am = data{3};
+    gamma_1 = data{4};
+    gamma_2 = data{5};
+    u = data{6};
 
     % ODEs system
-    dydt(1) = A(1, 1)*y(1) + A(1, 2)*y(2) + B(1)*u(t);
-    dydt(2) = A(2, 1)*y(1) + A(2, 2)*y(2) + B(2)*u(t);
-    dydt(3) = y(3)*y(5) + y(4)*y(6) + y(9)*u(t);
-    dydt(4) = y(3)*y(7) + y(4)*y(8) + y(10)*u(t);
-    dydt(5) = gamma_1*(y(1)*y(3) - y(3)^2);
-    dydt(6) = gamma_1*(y(2)*y(3) - y(3)*y(4));
-    dydt(7) = gamma_1*(y(1)*y(4) - y(3)*y(4));
-    dydt(8) = gamma_1*(y(2)*y(4) - y(4)^2);
+    dydt(1) = A(1,1)*y(1) + A(1,2)*y(2) + B(1)*u(t);
+    dydt(2) = A(2,1)*y(1) + A(2,2)*y(2) + B(2)*u(t);
+
+    dydt(3) = Am(1,1)*y(3) + Am(1,2)*y(4) + (y(5)-Am(1,1))*y(1) ...
+        + (y(6)-Am(1,2))*y(2) + y(9)*u(t);
+    dydt(4) = Am(2,1)*y(3) + Am(2,2)*y(4) + (y(7)-Am(2,1))*y(1) ...
+        + (y(8)-Am(2,2))*y(2) + y(10)*u(t);
+
+    dydt(5) = gamma_1*(y(1)^2 - y(1)*y(3));
+    dydt(6) = gamma_1*(y(1)*y(2) - y(2)*y(3));
+    dydt(7) = gamma_1*(y(1)*y(2) - y(1)*y(4));
+    dydt(8) = gamma_1*(y(2)^2 - y(2)*y(4));
+
     dydt(9) = gamma_2*(y(1)-y(3))*u(t);
     dydt(10) = gamma_2*(y(2)-y(4))*u(t);
 
